@@ -1,6 +1,7 @@
 /*======================== GERAL =======================*/
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -17,6 +18,12 @@
   --nav-height: 7.2rem;
 }
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   font-family: 'DM Sans';
   font-size: 1.6rem;
@@ -30,6 +37,10 @@ body {
   padding-inline: 2.4rem;
 }
 
+ul {
+  list-style: none;
+}
+
 /*======== HEADER=================================*/
 header {
   margin-top: calc(4.1rem + var(--nav-height));
@@ -37,7 +48,7 @@ header {
 
 header::before {
   content: '';
-  width: 100vw;
+  width: 100%;
   height: calc(108rem + var(--nav-height));
   background: var(--brand-light);
   display: block;
@@ -147,7 +158,7 @@ nav {
 
 nav .wrapper {
   display: flex;
-  align-content: center;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -162,4 +173,29 @@ nav.scroll svg:nth-child(1) path {
 
 nav.scroll svg:nth-child(2) path {
   stroke: white;
+}
+
+/*======== MENU-EXPANDED =================================*/
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--primary-color);
+}
+
+body.menu-expanded nav {
+  position: relative;
 }
