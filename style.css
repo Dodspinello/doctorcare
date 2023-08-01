@@ -6,13 +6,14 @@
 }
 
 :root {
-  --primary-color: hsla(170, 100%, 26%);
+  --hue: 290;
+  --primary-color: hsla(var(--hue), 100%, 26%);
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
 
   --brand-beige: hsl(39, 100%, 97%);
-  --brand-light: hsl(148, 23%, 89%);
-  --brand-dark: hsl(170, 100%, 14%);
+  --brand-light: hsl(calc(var(--hue) - 22), 23%, 89%);
+  --brand-dark: hsl(var(--hue), 100%, 14%);
 
   --bg-light: hsl(180, 14%, 97%);
 
@@ -125,6 +126,37 @@ section .content p {
   background-color: var(--brand-dark);
 }
 
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+/* custom colors */
+#services .card circle {
+  fill: var(--brand-light);
+}
+
+#navegac .logo path[fill*='#00856F'],
+#backToTopButton circle {
+  fill: var(--primary-color);
+}
+
+#navegac button.open-menu path[stroke*='#00856F'],
+#contact li path {
+  stroke: var(--primary-color);
+}
+
+body.menu-expanded #navegac .logo path,
+#navegac.scroll .logo path {
+  fill: white;
+}
+
+#navegac.scroll button.open-menu path[stroke*='#00856F'] {
+  stroke: white;
+}
+
 /*======== NAVIGATION =================================*/
 nav {
   display: flex;
@@ -146,14 +178,6 @@ nav .wrapper {
 
 nav.scroll {
   background: var(--primary-color);
-}
-
-nav.scroll .logo path {
-  fill: white;
-}
-
-nav.scroll button path {
-  stroke: white;
 }
 
 nav button {
@@ -238,11 +262,11 @@ body.menu-expanded .menu {
   margin-bottom: 8rem;
 }
 
-.social-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3.2rem;
+.menu .button:hover {
+  background-color: var(--primary-color);
+  color: white;
+
+  filter: brightness(1.1);
 }
 
 body.menu-expanded .logo,
@@ -401,6 +425,7 @@ footer {
 }
 
 footer .logo {
+  display: inline-block;
   margin-bottom: 2.4rem;
 }
 
@@ -411,4 +436,34 @@ footer .logo svg {
 
 footer .logo path {
   fill: white;
+}
+
+footer p {
+  color: var(--brand-beige);
+  line-height: 2;
+
+  margin-bottom: 3.2rem;
+}
+
+footer .social-links {
+  justify-content: flex-start;
+}
+
+/* BACK TO TOP */
+#backToTopButton {
+  position: fixed;
+  bottom: 1rem;
+  right: 2.5rem;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(100%);
+  transition: 200ms;
+}
+
+#backToTopButton.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
