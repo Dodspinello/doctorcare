@@ -1,4 +1,4 @@
-/*======================== GERAL =======================*/
+/*=== GERAL =================================*/
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +6,8 @@
 }
 
 :root {
-  --hue: 290;
-  --primary-color: hsla(var(--hue), 100%, 26%);
+  --hue: 190;
+  --primary-color: hsl(var(--hue), 100%, 26%);
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
 
@@ -18,12 +18,13 @@
 
   --bg-light: hsl(180, 14%, 97%);
 
-  font-size: 62.5%; /* 1rem = 10 px */
+  font-size: 62.5%; /* 1rem = 10px */
 
   --nav-height: 7.2rem;
 }
 
 html {
+  /* chrome://flags/#smooth-scrolling */
   scroll-behavior: smooth;
 }
 
@@ -45,7 +46,7 @@ body {
 }
 
 .wrapper {
-  width: min (50rem, 100%);
+  width: min(50rem, 100%);
   margin-inline: auto;
   padding-inline: 2.4rem;
 }
@@ -144,7 +145,7 @@ section .content p {
   fill: var(--primary-color);
 }
 
-#navegac button.open-menu path[stroke*='#00856F'],
+button.open-menu path[stroke*='#00856F'],
 #contact li path {
   stroke: var(--primary-color);
 }
@@ -158,7 +159,7 @@ body.menu-expanded #navegac .logo path,
   stroke: white;
 }
 
-/*======== NAVIGATION =================================*/
+/*=== NAVIGATION =================================*/
 nav {
   display: flex;
 
@@ -187,13 +188,13 @@ nav button {
   cursor: pointer;
 }
 
-nav.menu,
-nav.close-menu {
+nav .menu,
+nav .close-menu {
   position: fixed;
 }
 
-/*======== MENU-EXPANDED =================================*/
-bodu.menu-expanded {
+/*=== MENU-EXPANDED =================================*/
+body.menu-expanded {
   overflow: hidden;
 }
 
@@ -229,7 +230,7 @@ body.menu-expanded .menu {
   padding-top: var(--nav-height);
 
   transition: transform 300ms;
-  transform: translateY(0%);
+  transform: translateY(0);
 }
 
 .menu ul:nth-child(1) {
@@ -239,8 +240,8 @@ body.menu-expanded .menu {
 
   margin-top: 6rem;
 
-  font-size: 2.4rem;
   font-weight: 700;
+  font-size: 2.4rem;
   line-height: 3.1rem;
 }
 
@@ -252,8 +253,8 @@ body.menu-expanded .menu {
 .menu .button {
   background: white;
   border-radius: 4rem;
-  font-size: 1.8rem;
   font-weight: 700;
+  font-size: 1.8rem;
   line-height: 2.3rem;
   text-transform: uppercase;
   text-decoration: none;
@@ -288,7 +289,7 @@ body.menu-expanded button path {
   stroke: white;
 }
 
-/*======== HOME =================================*/
+/*=== #HOME =================================*/
 #home {
   padding-block: 0;
   padding-top: calc(4.1rem + var(--nav-height));
@@ -298,7 +299,7 @@ body.menu-expanded button path {
   content: '';
   width: 100%;
   height: calc(76% + var(--nav-height));
-  background: var(--brand-light);
+  background-color: var(--brand-light);
   display: block;
 
   position: absolute;
@@ -313,8 +314,8 @@ body.menu-expanded button path {
 
 #home p {
   font-size: 1.8rem;
-  font-weight: 400;
   line-height: 150%;
+  font-weight: 400;
   color: var(--paragraph);
 
   margin-bottom: 3.2rem;
@@ -332,7 +333,7 @@ body.menu-expanded button path {
   padding-block: 4rem;
   margin-inline: auto;
 
-  background: var(--brand-beige);
+  background-color: var(--brand-beige);
   border: 1px solid var(--brand-light);
   border-radius: 0.6rem;
 
@@ -357,7 +358,7 @@ body.menu-expanded button path {
   line-height: 150%;
 }
 
-/*========  SERVICES =================================*/
+/*=== SERVICES =================================*/
 #services header h2 {
   margin-bottom: 6rem;
 }
@@ -382,7 +383,7 @@ body.menu-expanded button path {
   margin-block: 1.6rem;
 }
 
-/*========  ABOUT =================================*/
+/*=== ABOUT =================================*/
 #about {
   text-align: left;
   background-color: var(--brand-beige);
@@ -392,12 +393,12 @@ body.menu-expanded button path {
   margin-bottom: 2.4rem;
 }
 
-about .content p {
+#about .content p {
   margin-top: 2.4rem;
   margin-bottom: 6rem;
 }
 
-/*========  CONTACT =================================*/
+/*=== CONTACT =================================*/
 #contact {
   text-align: left;
 }
@@ -420,7 +421,7 @@ about .content p {
   gap: 0.8rem;
 }
 
-/*========  FOOTER =================================*/
+/*=== FOOTER =================================*/
 footer {
   background-color: var(--primary-color);
   padding-block: 6rem;
@@ -474,9 +475,9 @@ footer .social-links {
   transform: translateY(0);
 }
 
-/*========  RESPONSIVO =================================*/
+/*=== RESPONSIVO =================================*/
 @media (min-width: 1024px) {
-  /*========  GERAL =================================*/
+  /*=== GERAL =================================*/
   body {
     overflow: auto;
   }
@@ -503,7 +504,8 @@ footer .social-links {
     line-height: 5.2rem;
   }
 
-  /* RESET */
+  /*=== NAVIGATION =================================*/
+  /* reset */
   nav#navegac .wrapper * {
     margin: 0;
     padding: 0;
@@ -520,7 +522,6 @@ footer .social-links {
     filter: initial;
   }
 
-  /*========  NAVIGAC =================================*/
   nav#navegac .close-menu,
   nav#navegac .open-menu,
   nav#navegac .social-links {
@@ -555,8 +556,8 @@ footer .social-links {
 
     color: var(--primary-color);
 
-    font-size: 1.4rem;
     font-weight: 700;
+    font-size: 1.4rem;
     line-height: 1.8rem;
     text-transform: uppercase;
   }
@@ -589,7 +590,7 @@ footer .social-links {
 
   nav#navegac .menu li a::after {
     content: '';
-    width: 0;
+    width: 0%;
     height: 2px;
     background-color: var(--primary-color);
 
@@ -623,16 +624,18 @@ footer .social-links {
     filter: brightness(1.3);
     border: none;
   }
-  /*======== HOME =================================*/
+
+  /*=== HOME =================================*/
   #home::before {
     height: calc(96% - var(--nav-height));
   }
+
   #home {
     padding-top: var(--nav-height);
   }
 
   #home .wrapper {
-    grid-template-columns: 50.5rem 1fr;
+    grid-template-columns: 60.5rem 1fr;
     grid-template-areas:
       'A B'
       'C C';
@@ -647,9 +650,10 @@ footer .social-links {
     font-size: 5.2rem;
   }
 
-  #home .content .p {
+  #home .content p {
     font-size: 1.8rem;
   }
+
   #home .stats {
     grid-area: C;
 
@@ -665,6 +669,7 @@ footer .social-links {
   #home .stats .stat {
     flex: 1;
   }
+
   #home .button {
     margin: 0;
   }
@@ -673,7 +678,7 @@ footer .social-links {
     width: 42rem;
   }
 
-  /*======== SERVICES =================================*/
+  /*=== SERVICES =================================*/
   #services h2 {
     width: 47rem;
     margin-inline: auto;
@@ -690,9 +695,9 @@ footer .social-links {
     flex-grow: 1;
   }
 
-  /*======== ABOUT =================================*/
+  /*=== ABOUT =================================*/
   #about .wrapper {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 48rem 1fr;
     grid-template-areas: 'B A';
     gap: 6.7rem;
   }
@@ -705,7 +710,7 @@ footer .social-links {
     margin-bottom: 0;
   }
 
-  /*======== CONTACT =================================*/
+  /*=== CONTACT =================================*/
 
   #contact .wrapper {
     grid-template-columns: 1fr 57.5rem;
@@ -716,7 +721,7 @@ footer .social-links {
     width: 40.4rem;
   }
 
-  /*======== FOOTER =================================*/
+  /*=== FOOTER =================================*/
   footer {
     padding-block: 8rem;
   }
